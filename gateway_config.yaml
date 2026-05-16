@@ -1,0 +1,38 @@
+thresholds:
+  rule_block: 0.6           # Rule score threshold for BLOCK
+  semantic_block: 0.75      # Semantic score threshold for BLOCK
+  final_risk_block: 0.65    # Combined final_risk threshold for BLOCK
+  final_risk_mask: 0.30     # Combined final_risk threshold for MASK
+  pii_weight: 0.15          # Risk bonus when PII + attack intent
+  secret_weight: 0.2        # Risk bonus when secret entity + attack intent
+
+policy:
+  allow_label: "ALLOW"
+  mask_label: "MASK"
+  block_label: "BLOCK"
+
+languages:
+  supported:
+    - en
+    - ur
+    - ko
+    - ar
+    - hi
+    - ro-ur   # Roman Urdu
+  default: en
+
+semantic:
+  model: "paraphrase-multilingual-MiniLM-L12-v2"
+  similarity_threshold: 0.72
+
+presidio:
+  min_score_threshold: 0.6
+  custom_entities:
+    - CNIC
+    - STUDENT_ID
+    - API_KEY
+    - PHONE_NUMBER
+
+logging:
+  audit_log_path: "results/audit_log.jsonl"
+  log_level: "INFO"
