@@ -76,7 +76,6 @@ Supported languages:
 |---|---|
 | English | ✅ |
 | Urdu | ✅ |
-| Roman Urdu | ✅ |
 | Arabic | ✅ |
 | Korean | ✅ |
 | Mixed Language | ✅ |
@@ -164,8 +163,13 @@ multilingual-llm-security-gateway/
 ---
 
 # Installation
+# Installation & Setup
 
-## Clone Repository
+Follow these steps carefully to run the project successfully.
+
+---
+
+# 1. Clone Repository
 
 ```bash
 git clone https://github.com/azanishshafique/multilingual-llm-security-gateway.git
@@ -177,25 +181,45 @@ cd multilingual-llm-security-gateway
 
 ---
 
-## Create Virtual Environment
+# 2. Create Virtual Environment
 
-### Windows
+## Windows
 
 ```bash
 python -m venv venv
+```
+
+Activate environment:
+
+```bash
 venv\Scripts\activate
 ```
 
-### Linux / Mac
+---
+
+## Linux / Mac
 
 ```bash
 python3 -m venv venv
+```
+
+Activate environment:
+
+```bash
 source venv/bin/activate
 ```
 
 ---
 
-# Install Dependencies
+# 3. Upgrade Pip
+
+```bash
+python -m pip install --upgrade pip
+```
+
+---
+
+# 4. Install Requirements
 
 ```bash
 pip install -r requirements.txt
@@ -203,25 +227,202 @@ pip install -r requirements.txt
 
 ---
 
-# Run Project
+# 5. Install spaCy
+
+```bash
+pip install spacy
+```
+
+---
+
+# 6. Download spaCy English Model
+
+IMPORTANT — Required for Presidio entity recognition.
+
+```bash
+python -m spacy download en_core_web_sm
+```
+
+---
+
+# 7. Install FastAPI & Uvicorn
+
+```bash
+pip install fastapi uvicorn
+```
+
+---
+
+# 8. Install Microsoft Presidio
+
+```bash
+pip install presidio-analyzer presidio-anonymizer
+```
+
+---
+
+# 9. Install Scikit-learn
+
+```bash
+pip install scikit-learn
+```
+
+---
+
+# 10. Install Language Detection Library
+
+```bash
+pip install langdetect
+```
+
+---
+
+# 11. Install YAML Support
+
+```bash
+pip install pyyaml
+```
+
+---
+
+# 12. Install Pandas
+
+```bash
+pip install pandas
+```
+
+---
+
+# 13. Verify Installation
+
+Check Python:
+
+```bash
+python --version
+```
+
+Check pip:
+
+```bash
+pip --version
+```
+
+Check Git:
+
+```bash
+git --version
+```
+
+---
+
+# 14. Run Project
 
 ```bash
 uvicorn main:app --reload
 ```
 
-API runs at:
+---
 
-```text
-http://127.0.0.1:8000
-```
+# 15. Open API
 
-Swagger API Docs:
+Swagger UI:
 
 ```text
 http://127.0.0.1:8000/docs
 ```
 
+Main API:
+
+```text
+http://127.0.0.1:8000
+```
+
 ---
+
+# 16. Run Tests
+
+Detector Tests:
+
+```bash
+python tests/test_detector.py
+```
+
+PII Tests:
+
+```bash
+python tests/test_pii.py
+```
+
+Policy Tests:
+
+```bash
+python tests/test_policy.py
+```
+
+---
+
+# 17. Run Evaluation
+
+```bash
+python evaluation/run_evaluation.py
+```
+
+---
+
+# Common Errors & Fixes
+
+## spaCy Model Error
+
+If you see:
+
+```text
+Can't find model 'en_core_web_sm'
+```
+
+Run:
+
+```bash
+python -m spacy download en_core_web_sm
+```
+
+---
+
+## Uvicorn Not Found
+
+Run:
+
+```bash
+pip install uvicorn
+```
+
+---
+
+## FastAPI Not Found
+
+Run:
+
+```bash
+pip install fastapi
+```
+
+---
+
+## Presidio Error
+
+Run:
+
+```bash
+pip install presidio-analyzer presidio-anonymizer
+```
+
+---
+
+# Recommended Python Version
+
+```text
+Python 3.10+
+```
+
 
 # Example Attacks
 
