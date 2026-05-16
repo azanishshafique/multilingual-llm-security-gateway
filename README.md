@@ -41,7 +41,6 @@ The system supports:
 
 - English
 - Urdu
-- Roman Urdu
 - Arabic
 - Korean
 - Mixed-Language Prompts
